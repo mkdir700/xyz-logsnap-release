@@ -24,7 +24,6 @@ curl -sSL https://raw.githubusercontent.com/mkdir700/xyz-logsnap-release/master/
 在 Windows 系统上，我们提供了 PowerShell 安装脚本：
 
 ```powershell
-# 以管理员身份运行 PowerShell，然后执行：
 iwr -useb https://raw.githubusercontent.com/mkdir700/xyz-logsnap-release/master/scripts/install.ps1 | iex
 ```
 
