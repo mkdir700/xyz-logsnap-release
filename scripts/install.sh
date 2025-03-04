@@ -80,8 +80,8 @@ create_install_dir() {
   
   # 检查是否有写入权限
   if [ ! -w "$BIN_DIR" ]; then
-    echo -e "${YELLOW}没有 $BIN_DIR 的写入权限，将安装到 $HOME/bin 目录${NC}"
-    BIN_DIR="$HOME/bin"
+    echo -e "${YELLOW}没有 $BIN_DIR 的写入权限，将安装到 $HOME/.local/bin 目录${NC}"
+    BIN_DIR="$HOME/.local/bin"
     mkdir -p "$BIN_DIR"
   fi
 }
@@ -141,7 +141,7 @@ verify_installation() {
   
   if command -v "$BIN_DIR/logsnap" &> /dev/null; then
     echo -e "${GREEN}XYZLogSnap 已成功安装!${NC}"
-    echo -e "版本信息: $("$BIN_DIR/logsnap" --version 2>/dev/null || echo "无法获取版本信息")"
+    echo -e "版本信息: $("$BIN_DIR/logsnap" v 2>/dev/null || echo "无法获取版本信息")"
     echo -e "\n使用方法示例:"
     echo -e "  ${YELLOW}logsnap collect${NC} - 收集最近30分钟的日志"
     echo -e "  ${YELLOW}logsnap collect --time 1h${NC} - 收集最近1小时的日志"
