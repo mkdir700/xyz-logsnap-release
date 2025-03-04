@@ -141,12 +141,11 @@ verify_installation() {
   
   if command -v "$BIN_DIR/logsnap" &> /dev/null; then
     echo -e "${GREEN}XYZLogSnap 已成功安装!${NC}"
-    echo -e "版本信息: $("$BIN_DIR/logsnap" v 2>/dev/null || echo "无法获取版本信息")"
     echo -e "\n使用方法示例:"
     echo -e "  ${YELLOW}logsnap collect${NC} - 收集最近30分钟的日志"
+    echo -e "  ${YELLOW}logsnap collect -u${NC} - 收集最近30分钟的日志并上传云端"
     echo -e "  ${YELLOW}logsnap collect --time 1h${NC} - 收集最近1小时的日志"
     echo -e "  ${YELLOW}logsnap collect --start-time \"2023-03-01 10:00:00\" --end-time \"2023-03-01 11:00:00\"${NC} - 收集指定时间范围的日志"
-    echo -e "\n更多信息请访问: ${BLUE}https://github.com/${GITHUB_REPO}${NC}"
   else
     echo -e "${RED}安装似乎失败，请手动检查。${NC}"
     echo -e "${YELLOW}尝试手动运行: ${BIN_DIR}/logsnap --version${NC}"
